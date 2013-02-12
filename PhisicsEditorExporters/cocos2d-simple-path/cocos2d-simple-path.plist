@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>{% for body in bodies %}
+	<key>{{body.name}}</key>
+	<array>{% for fixture in body.fixtures %}{% for point in fixture.hull %}
+		<dict>
+			<key>x</key>
+			<string>{{point.x}}</string>
+			<key>y</key>
+			<string>{{point.y}}</string>
+		</dict>{% endfor %}{% endfor %}
+	</array>{% endfor %}
+</dict>
+</plist>
