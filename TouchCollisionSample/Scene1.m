@@ -27,14 +27,19 @@
     self = [super init];
     
 	if(self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLayerTouchTap:) name:LayerTouchTapNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onLayerTouchTapAndMove:) name:LayerTouchTapAndMoveNotification object:nil];
-        
         for (int i = 1; i <= 8; i++) {
-            CCLayerTouch *figure = [[CCLayerTouch alloc] initWithSpriteFile:[NSString stringWithFormat:@"fig%d.png", i] andPropertyListFile:@"figures.plist"];
+            CCLayerTouch *figure = [[CCLayerTouch new] autorelease];
+            figure.anchorPoint = ccp(0, 0);
+            
+            CCSprite *sprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"fig%d.png", i]];
+            sprite.anchorPoint = ccp(0, 0);
+            [figure addChild:sprite];
+            figure.contentSize = sprite.contentSize;
+            
+            [figure setDelegate:self];
+            [figure setSpriteFile:[NSString stringWithFormat:@"fig%d.png", i] andPropertyListFile:@"figures.plist"];
+            
             [self addChild:figure];
-            [figure release];
-            figure = nil;
         }
 	}
 	
@@ -42,24 +47,13 @@
 }
 
 -(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self removeAllChildrenWithCleanup:YES];
 	[super dealloc];
 }
 
--(IBAction)onLayerTouchTap:(NSNotification*)sender{
-    
-}
-
--(IBAction)onLayerTouchTapAndMove:(NSNotification*)sender{
-    CCLayerTouch *node = (CCLayerTouch*)[sender object];
-    
-    if(node == nil || sender.userInfo == nil){
-        return;
-    }
-    
-    node.position = ccp([[sender.userInfo objectForKey:@"x"] floatValue] - node.contentSize.width/2,
-                        [[sender.userInfo objectForKey:@"y"] floatValue] - node.contentSize.height/2);
+-(void)ccLayerTouchDidTap:(CCLayerTouch *)sender moveToPoint:(CGPoint)destPoint{
+    sender.position = ccp(destPoint.x - sender.contentSize.width/2,
+                          destPoint.y - sender.contentSize.height/2);
 }
 
 @end

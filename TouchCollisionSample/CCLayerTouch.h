@@ -9,11 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-static NSString *LayerTouchTapNotification = @"LayerTouchTap";
-static NSString *LayerTouchTapAndMoveNotification = @"LayerTouchTapAndMove";
+@protocol CCLayerTouchDelegate;
 
 @interface CCLayerTouch : CCLayer
 
-- (id)initWithSpriteFile:(NSString*)spriteFile andPropertyListFile:(NSString*)propertyListFile;
+@property(assign, nonatomic) id<CCLayerTouchDelegate> delegate;
+
+- (id)init;
+- (void)setSpriteFile:(NSString*)spriteFile andPropertyListFile:(NSString*)propertyListFile;
+
+@end
+
+@protocol CCLayerTouchDelegate <NSObject>
+
+@optional
+-(void)ccLayerTouchDidTap:(CCLayerTouch *)sender;
+-(void)ccLayerTouchDidTap:(CCLayerTouch *)sender moveToPoint:(CGPoint)destPoint;
 
 @end

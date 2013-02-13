@@ -14,23 +14,22 @@
     NSArray *_touchMap;
 }
 
-- (id)initWithSpriteFile:(NSString*)spriteFile andPropertyListFile:(NSString*)propertyListFile{
+@synthesize delegate = _delegate;
+
+-(id)init{
     self = [super init];
     
-    if (self) {
+    if(self){
         self.isTouchEnabled = YES;
-        _spriteFileName = [spriteFile retain];
-        _propertyListFileName = [propertyListFile retain];
-        _touchMap = [[self getTouchMapArrayFromPropertyList] retain];
-        
-        CCSprite *sprite = [CCSprite spriteWithFile:_spriteFileName];
-        sprite.anchorPoint = ccp(0, 0);
-        [self addChild:sprite];
-        
-        self.contentSize = sprite.contentSize;
     }
     
     return self;
+}
+
+- (void)setSpriteFile:(NSString*)spriteFile andPropertyListFile:(NSString*)propertyListFile{
+    _spriteFileName = [spriteFile retain];
+    _propertyListFileName = [propertyListFile retain];
+    _touchMap = [[self getTouchMapArrayFromPropertyList] retain];
 }
 
 -(void)dealloc{
@@ -59,11 +58,15 @@
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:LayerTouchTapAndMoveNotification object:self userInfo:[NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:[NSNumber numberWithFloat:location.x], [NSNumber numberWithFloat:location.y], nil] forKeys:[NSArray arrayWithObjects:@"x", @"y", nil]]];
+    if([self.delegate respondsToSelector:@selector(ccLayerTouchDidTap:moveToPoint:)]){
+        [self.delegate ccLayerTouchDidTap:self moveToPoint:location];
+    }
 }
 
 -(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-    [[NSNotificationCenter defaultCenter] postNotificationName:LayerTouchTapNotification object:self];
+    if([self.delegate respondsToSelector:@selector(ccLayerTouchDidTap:)]){
+        [self.delegate ccLayerTouchDidTap:self];
+    }
 }
 
 -(void)onEnter{

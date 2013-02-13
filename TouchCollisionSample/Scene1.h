@@ -7,8 +7,9 @@
 //
 
 #import "cocos2d.h"
+#import "CCLayerTouch.h"
 
-@interface Scene1 : CCLayer
+@interface Scene1 : CCLayer<CCLayerTouchDelegate>
 
 +(CCScene *) scene;
 
