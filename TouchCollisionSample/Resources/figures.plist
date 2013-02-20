@@ -6,37 +6,37 @@
 	<array>
 		<dict>
 			<key>x</key>
+			<string>1</string>
+			<key>y</key>
+			<string>58</string>
+		</dict>
+		<dict>
+			<key>x</key>
+			<string>68</string>
+			<key>y</key>
+			<string>107</string>
+		</dict>
+		<dict>
+			<key>x</key>
+			<string>119</string>
+			<key>y</key>
+			<string>71</string>
+		</dict>
+		<dict>
+			<key>x</key>
+			<string>102</string>
+			<key>y</key>
+			<string>15</string>
+		</dict>
+		<dict>
+			<key>x</key>
+			<string>81</string>
+			<key>y</key>
 			<string>0</string>
-			<key>y</key>
-			<string>59</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>69</string>
-			<key>y</key>
-			<string>109</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>121</string>
-			<key>y</key>
-			<string>72</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>101</string>
-			<key>y</key>
-			<string>14</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>79</string>
-			<key>y</key>
-			<string>0</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>20</string>
+			<string>21</string>
 			<key>y</key>
 			<string>0</string>
 		</dict>
@@ -51,33 +51,15 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>75</string>
+			<string>5</string>
 			<key>y</key>
-			<string>1</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>28</string>
-			<key>y</key>
-			<string>0</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>1</string>
-			<key>y</key>
-			<string>10</string>
+			<string>6</string>
 		</dict>
 		<dict>
 			<key>x</key>
 			<string>0</string>
 			<key>y</key>
 			<string>114</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>73</string>
-			<key>y</key>
-			<string>124</string>
 		</dict>
 		<dict>
 			<key>x</key>
@@ -102,9 +84,9 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>25</string>
+			<string>15</string>
 			<key>y</key>
-			<string>104</string>
+			<string>94</string>
 		</dict>
 		<dict>
 			<key>x</key>
@@ -135,15 +117,9 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>1</string>
+			<string>2</string>
 			<key>y</key>
-			<string>16</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>0</string>
-			<key>y</key>
-			<string>22</string>
+			<string>26</string>
 		</dict>
 		<dict>
 			<key>x</key>
@@ -155,7 +131,7 @@
 			<key>x</key>
 			<string>107</string>
 			<key>y</key>
-			<string>18</string>
+			<string>23</string>
 		</dict>
 		<dict>
 			<key>x</key>
@@ -174,9 +150,9 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>10</string>
+			<string>5</string>
 			<key>y</key>
-			<string>22</string>
+			<string>30</string>
 		</dict>
 		<dict>
 			<key>x</key>
@@ -186,15 +162,9 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>16</string>
+			<string>30</string>
 			<key>y</key>
-			<string>95</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>32</string>
-			<key>y</key>
-			<string>107</string>
+			<string>106</string>
 		</dict>
 		<dict>
 			<key>x</key>
@@ -216,12 +186,6 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>97</string>
-			<key>y</key>
-			<string>17</string>
-		</dict>
-		<dict>
-			<key>x</key>
 			<string>67</string>
 			<key>y</key>
 			<string>0</string>
@@ -237,33 +201,21 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>1</string>
+			<string>2</string>
 			<key>y</key>
-			<string>51</string>
+			<string>45</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>46</string>
+			<string>64</string>
 			<key>y</key>
-			<string>97</string>
+			<string>101</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>69</string>
+			<string>111</string>
 			<key>y</key>
-			<string>102</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>113</string>
-			<key>y</key>
-			<string>55</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>71</string>
-			<key>y</key>
-			<string>7</string>
+			<string>49</string>
 		</dict>
 		<dict>
 			<key>x</key>
@@ -282,15 +234,9 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>21</string>
+			<string>32</string>
 			<key>y</key>
-			<string>59</string>
-		</dict>
-		<dict>
-			<key>x</key>
-			<string>35</string>
-			<key>y</key>
-			<string>73</string>
+			<string>70</string>
 		</dict>
 		<dict>
 			<key>x</key>
@@ -300,9 +246,9 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>119</string>
+			<string>117</string>
 			<key>y</key>
-			<string>16</string>
+			<string>22</string>
 		</dict>
 		<dict>
 			<key>x</key>
@@ -321,19 +267,19 @@
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>7</string>
-			<key>y</key>
 			<string>6</string>
+			<key>y</key>
+			<string>8</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>61</string>
+			<string>64</string>
 			<key>y</key>
 			<string>117</string>
 		</dict>
 		<dict>
 			<key>x</key>
-			<string>118</string>
+			<string>119</string>
 			<key>y</key>
 			<string>7</string>
 		</dict>

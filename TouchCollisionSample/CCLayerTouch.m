@@ -26,7 +26,7 @@
     return self;
 }
 
-- (void)setSpriteFile:(NSString*)spriteFile andPropertyListFile:(NSString*)propertyListFile{
+- (void)setTouchMapWithSpriteName:(NSString*)spriteFile andPropertyListFile:(NSString*)propertyListFile{
     _spriteFileName = [spriteFile retain];
     _propertyListFileName = [propertyListFile retain];
     _touchMap = [[self getTouchMapArrayFromPropertyList] retain];
@@ -47,11 +47,19 @@
     CGPoint location = [touch locationInView:[touch view]];
     location = [[CCDirector sharedDirector] convertToGL:location];
     
-    if(CGRectContainsPoint(CGRectMake(self.position.x, self.position.y, self.contentSize.width, self.contentSize.height), location) == NO){
+    CCNode *child = nil;
+    
+    if(self.children.count > 0){
+        child = [self.children objectAtIndex:0];
+    }else{
+        child = self;
+    }
+    
+    if(CGRectContainsPoint(CGRectMake(child.position.x-(child.contentSize.width*child.anchorPoint.x), child.position.y-(child.contentSize.height*child.anchorPoint.y), child.contentSize.width, child.contentSize.height), location) == NO){
         return NO;
     }
     
-    return [self isTouchMapContainsPoint:location withOffset:self.position];
+    return [self isTouchMapContainsPoint:location withOffset:ccp(child.position.x-(child.contentSize.width*child.anchorPoint.x), child.position.y-(child.contentSize.height*child.anchorPoint.y))];
 }
 
 -(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{

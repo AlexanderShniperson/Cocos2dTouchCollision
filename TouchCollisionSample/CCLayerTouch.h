@@ -16,7 +16,7 @@
 @property(assign, nonatomic) id<CCLayerTouchDelegate> delegate;
 
 - (id)init;
-- (void)setSpriteFile:(NSString*)spriteFile andPropertyListFile:(NSString*)propertyListFile;
+- (void)setTouchMapWithSpriteName:(NSString*)spriteFile andPropertyListFile:(NSString*)propertyListFile;
 
 @end
 

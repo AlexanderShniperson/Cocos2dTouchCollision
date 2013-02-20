@@ -6,44 +6,43 @@
 //  Copyright Aleksander Shniperson 2013. All rights reserved.
 //
 
-
 #import "Scene1.h"
-#import "AppDelegate.h"
-#import "CCLayerTouch.h"
 
 @implementation Scene1
 
-+(CCScene *)scene {
-	CCScene *scene = [CCScene node];
-	
-	Scene1 *layer = [Scene1 node];
-	
-	[scene addChild: layer];
-	
-	return scene;
-}
+@synthesize fig1;
+@synthesize fig2;
+@synthesize fig3;
+@synthesize fig4;
+@synthesize fig5;
+@synthesize fig6;
+@synthesize fig7;
+@synthesize fig8;
 
--(id)init {
-    self = [super init];
+-(void)didLoadFromCCB{
+    self.fig1.delegate = self;
+    [self.fig1 setTouchMapWithSpriteName:@"fig1" andPropertyListFile:@"figures.plist"];
+
+    self.fig2.delegate = self;
+    [self.fig2 setTouchMapWithSpriteName:@"fig2" andPropertyListFile:@"figures.plist"];
+
+    self.fig3.delegate = self;
+    [self.fig3 setTouchMapWithSpriteName:@"fig3" andPropertyListFile:@"figures.plist"];
     
-	if(self) {
-        for (int i = 1; i <= 8; i++) {
-            CCLayerTouch *figure = [[CCLayerTouch new] autorelease];
-            figure.anchorPoint = ccp(0, 0);
-            
-            CCSprite *sprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"fig%d.png", i]];
-            sprite.anchorPoint = ccp(0, 0);
-            [figure addChild:sprite];
-            figure.contentSize = sprite.contentSize;
-            
-            [figure setDelegate:self];
-            [figure setSpriteFile:[NSString stringWithFormat:@"fig%d.png", i] andPropertyListFile:@"figures.plist"];
-            
-            [self addChild:figure];
-        }
-	}
-	
-    return self;
+    self.fig4.delegate = self;
+    [self.fig4 setTouchMapWithSpriteName:@"fig4" andPropertyListFile:@"figures.plist"];
+    
+    self.fig5.delegate = self;
+    [self.fig5 setTouchMapWithSpriteName:@"fig5" andPropertyListFile:@"figures.plist"];
+    
+    self.fig6.delegate = self;
+    [self.fig6 setTouchMapWithSpriteName:@"fig6" andPropertyListFile:@"figures.plist"];
+    
+    self.fig7.delegate = self;
+    [self.fig7 setTouchMapWithSpriteName:@"fig7" andPropertyListFile:@"figures.plist"];
+    
+    self.fig8.delegate = self;
+    [self.fig8 setTouchMapWithSpriteName:@"fig8" andPropertyListFile:@"figures.plist"];
 }
 
 -(void)dealloc {
@@ -52,8 +51,16 @@
 }
 
 -(void)ccLayerTouchDidTap:(CCLayerTouch *)sender moveToPoint:(CGPoint)destPoint{
-    sender.position = ccp(destPoint.x - sender.contentSize.width/2,
-                          destPoint.y - sender.contentSize.height/2);
+    CCNode *child = nil;
+    
+    if(sender.children.count == 0){
+        return;
+    }else{
+        child = [sender.children objectAtIndex:0];
+    }
+    
+    child.position = ccp(destPoint.x - child.contentSize.width/2,
+                          destPoint.y - child.contentSize.height/2);
 }
 
 @end
